@@ -14,9 +14,8 @@ long long lcm_naive(int a, int b) {
 }
 
 int main() {
-    int a = 6, b = 8;
-    // std::cin >> a >> b;
+    int a, b;
+    std::cin >> a >> b;
     std::cout << lcm_naive(a, b) << std::endl;
-    // std::cout << lcm(a, b) << std::endl;
     return 0;
 }

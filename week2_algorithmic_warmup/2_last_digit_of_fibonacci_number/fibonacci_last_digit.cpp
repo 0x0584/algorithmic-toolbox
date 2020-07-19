@@ -7,7 +7,7 @@ int get_fibonacci_last_digit_naive(int n) {
     int previous = 0;
     int current = 1;
 
-    for (int step = 1; step <= n; ++step) {
+    for (int step = 2; step <= n; ++step) {
         int tmp_previous = previous;
         previous = current;
         current = (tmp_previous + current) % 10;
@@ -19,6 +19,5 @@ int get_fibonacci_last_digit_naive(int n) {
 int main() {
     int n;
     std::cin >> n;
-    int c = get_fibonacci_last_digit_naive(n);
-    std::cout << c << '\n';
+    std::cout << get_fibonacci_last_digit_naive(n) << std::endl;
 }
