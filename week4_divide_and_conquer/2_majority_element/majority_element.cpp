@@ -1,22 +1,23 @@
 #include <algorithm>
+#include <cmath>
 #include <iostream>
+#include <unordered_map>
 #include <vector>
 
-using std::vector;
-
-int get_majority_element(vector<int> &a, int left, int right) {
-  if (left == right) return -1;
-  if (left + 1 == right) return a[left];
-  //write your code here
-  return -1;
-}
+using namespace std;
 
 int main() {
-  int n;
-  std::cin >> n;
-  vector<int> a(n);
-  for (size_t i = 0; i < a.size(); ++i) {
-    std::cin >> a[i];
-  }
-  std::cout << (get_majority_element(a, 0, a.size()) != -1) << '\n';
+    unordered_map<int, int> count;
+    size_t n;
+    cin >> n;
+    for (size_t i = 0; i < n; ++i) {
+        size_t tmp;
+        cin >> tmp;
+        count[tmp]++;
+    }
+    const int half = floor(n / 2) + 1;
+    const auto majority = [&half](pair<int, int> e) {
+        return e.second >= half;
+    };
+    cout << any_of(begin(count), end(count), majority) << '\n';
 }
